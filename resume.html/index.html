@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dmytro – QA Engineer</title>
+  <link rel="stylesheet" href="assets\css\styles.css\styles.css" />
+  <script src="assets\js\i18n.js\i18n.js"></script>
+  <script src="assets\js\main.js\main.js" defer></script>
+</head>
+<body>
+  <!-- Page wrapper -->
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header__inner">
+        <div class="header__brand">
+          <a href="#hero" class="header__logo">Dmytro QA</a>
+        </div>
+
+        <nav class="header__nav">
+          <a href="#about" class="nav__link" data-i18n="nav.about">About</a>
+          <a href="#skills" class="nav__link" data-i18n="nav.skills">Skills</a>
+          <a href="#projects" class="nav__link" data-i18n="nav.projects">Projects</a>
+          <a href="#courses" class="nav__link" data-i18n="nav.courses">Courses</a>
+          <a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <div class="header__controls">
+          <!-- Theme toggle -->
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <span class="theme-toggle__icon">🌞</span>
+          </button>
+
+          <!-- Language switcher -->
+          <div class="lang-switcher" id="langSwitcher">
+            <button class="lang-switcher__button" aria-haspopup="true" aria-expanded="false">
+              <span class="lang-switcher__icon">🌐</span>
+              <span class="lang-switcher__current" id="currentLang">EN</span>
+            </button>
+            <div class="lang-switcher__dropdown">
+              <button class="lang-option" data-lang="en">EN</button>
+              <button class="lang-option" data-lang="uk">UA</button>
+              <button class="lang-option" data-lang="pl">PL</button>
+            </div>
+          </div>
+
+          <!-- Mobile menu toggle (бургер) -->
+          <button class="burger" id="burger" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE NAV (for small screens) -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#about" class="mobile-nav__link" data-i18n="nav.about">About</a>
+      <a href="#skills" class="mobile-nav__link" data-i18n="nav.skills">Skills</a>
+      <a href="#projects" class="mobile-nav__link" data-i18n="nav.projects">Projects</a>
+      <a href="#courses" class="mobile-nav__link" data-i18n="nav.courses">Courses</a>
+      <a href="#contact" class="mobile-nav__link" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <!-- MAIN -->
+    <main>
+
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <h1 class="hero__title" data-i18n="hero.title">
+              Dmytro — QA Engineer
+            </h1>
+            <p class="hero__subtitle" data-i18n="hero.subtitle">
+              Manual & API Testing • Web QA • Responsive Testing
+            </p>
+            <div class="hero__actions">
+              <a href="#" class="btn btn--primary" data-i18n="hero.downloadCv">
+                Download CV
+              </a>
+              <a href="#contact" class="btn btn--outline" data-i18n="hero.contactMe">
+                Contact me
+              </a>
+            </div>
+          </div>
+          <div class="hero__photo">
+            <!-- Placeholder for photo -->
+            <div class="hero__avatar">
+              <!-- You can replace with <img src="me.jpg" alt="Dmytro" /> -->
+              <span class="hero__avatar-initials">D</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="container">
+          <h2 class="section__title" data-i18n="about.title">About</h2>
+          <p class="section__text" data-i18n="about.text">
+            I am a QA Engineer focused on web projects, manual and API testing, and building clear QA processes.
+          </p>
+
+          <div class="about__highlights">
+            <div class="about-card">
+              <h3 class="about-card__title" data-i18n="about.experience.title">Experience</h3>
+              <p class="about-card__text" data-i18n="about.experience.text">
+                Web QA, responsive testing, payment flows, bug reporting.
+              </p>
+            </div>
+            <div class="about-card">
+              <h3 class="about-card__title" data-i18n="about.focus.title">Focus</h3>
+              <p class="about-card__text" data-i18n="about.focus.text">
+                Manual & API testing, process setup, documentation.
+              </p>
+            </div>
+            <div class="about-card">
+              <h3 class="about-card__title" data-i18n="about.tools.title">Tools</h3>
+              <p class="about-card__text" data-i18n="about.tools.text">
+                Postman, DevTools, Jira, Kanban, browser debugging.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+        <div class="container">
+          <h2 class="section__title" data-i18n="skills.title">Skills</h2>
+          <div class="skills__grid">
+            <div class="skill-card">
+              <h3 class="skill-card__title" data-i18n="skills.manual">Manual Testing</h3>
+            </div>
+            <div class="skill-card">
+              <h3 class="skill-card__title" data-i18n="skills.api">API Testing (Postman)</h3>
+            </div>
+            <div class="skill-card">
+              <h3 class="skill-card__title" data-i18n="skills.devtools">Browser DevTools</h3>
+            </div>
+            <div class="skill-card">
+              <h3 class="skill-card__title" data-i18n="skills.responsive">Responsive / Adaptive Testing</h3>
+            </div>
+            <div class="skill-card">
+              <h3 class="skill-card__title" data-i18n="skills.jira">Jira & Kanban</h3>
+            </div>
+            <div class="skill-card">
+              <h3 class="skill-card__title" data-i18n="skills.reporting">Bug Reporting & Documentation</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section" id="projects">
+        <div class="container">
+          <h2 class="section__title" data-i18n="projects.title">Projects</h2>
+          <div class="projects__grid" id="projectsGrid">
+            <!-- Example static card (потім можна замінити на динамічні з адмінки) -->
+            <article class="project-card">
+              <h3 class="project-card__title">Cosmetics E-commerce QA</h3>
+              <p class="project-card__text">
+                Manual and responsive testing, payment flow validation, DOM behavior analysis.
+              </p>
+              <a href="#" class="project-card__link" data-i18n="projects.viewDetails">
+                View details
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COURSES -->
+      <section class="section" id="courses">
+        <div class="container">
+          <h2 class="section__title" data-i18n="courses.title">Courses</h2>
+          <div class="courses__list" id="coursesList">
+            <article class="course-card">
+              <h3 class="course-card__title">QA Fundamentals</h3>
+              <p class="course-card__meta">Online • 2024</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section section--contact" id="contact">
+        <div class="container contact__inner">
+          <div class="contact__info">
+            <h2 class="section__title" data-i18n="contact.title">Contact</h2>
+            <p class="section__text" data-i18n="contact.text">
+              Feel free to reach out via the form or social networks.
+            </p>
+
+            <div class="socials">
+              <a href="#" class="socials__link">LinkedIn</a>
+              <a href="#" class="socials__link">GitHub</a>
+              <a href="#" class="socials__link">Telegram</a>
+            </div>
+          </div>
+
+          <div class="contact__form-wrapper">
+            <form class="contact-form" id="contactForm">
+              <div class="form__field">
+                <label for="name" data-i18n="contact.form.name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form__field">
+                <label for="email" data-i18n="contact.form.email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form__field">
+                <label for="message" data-i18n="contact.form.message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary" data-i18n="contact.form.submit">
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__text">© 2026 Dmytro QA</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JS (поки тільки каркас для теми/мови/меню) -->
+  <script src="main.js"></script>
+</body>
+</html>
