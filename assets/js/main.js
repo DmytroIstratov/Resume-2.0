@@ -44,9 +44,13 @@ const LANG_KEY = "lang";
 const langButtons = document.querySelectorAll(".lang-option");
 const currentLangEl = document.getElementById("currentLang");
 
-// 1. Завантажуємо мову з localStorage
+// Глобальна змінна мови
 let currentLang = localStorage.getItem(LANG_KEY) || "en";
-applyTranslations(currentLang);
+
+// 1. Завантажуємо мову після DOM
+document.addEventListener("DOMContentLoaded", () => {
+  applyTranslations(currentLang);
+});
 
 // 2. Обробник кліку по кнопках мов
 langButtons.forEach(btn => {
@@ -55,8 +59,6 @@ langButtons.forEach(btn => {
     currentLang = lang;
 
     localStorage.setItem(LANG_KEY, lang);
-    currentLangEl.textContent = lang.toUpperCase();
-
     applyTranslations(lang);
   });
 });
@@ -64,11 +66,12 @@ langButtons.forEach(btn => {
 // 3. Функція оновлення тексту на сторінці
 function applyTranslations(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
+    const key = el.dataset.i18n?.trim();
+    el.textContent = translations[lang]?.[key] || `[${key}]`;
   });
 
-  currentLangEl.textContent = lang.toUpperCase();
+  if (currentLangEl) {
+    currentLangEl.textContent = lang.toUpperCase();
+  }
 }
+
