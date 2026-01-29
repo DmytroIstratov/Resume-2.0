@@ -47,14 +47,14 @@ img {
   --accent: #0ea5e9;
 
   --radius: 8px;
-  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="dark"] {
   --bg: #1b2430;
   --text: #e8ecf1;
-  --card-bg: #243447; 
-  --border: #2f3b4a;     
+  --card-bg: #243447;
+  --border: #2f3b4a;
 
   --primary: #3b82f6;
   --primary-hover: #2563eb;
@@ -131,17 +131,23 @@ img {
 /* Language switcher */
 .lang-switcher {
   position: relative;
+  display: inline-block;
+}
+
+/* Language switcher colors */
+[data-theme="dark"] .lang-switcher__current,
+[data-theme="dark"] .lang-option {
+  color: #e8ecf1;
 }
 
 .lang-switcher__button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: none;
-  border: 1px solid var(--border);
-  padding: 6px 10px;
-  border-radius: var(--radius);
-  cursor: pointer;
+  gap: 0.5em;
 }
 
 .lang-switcher__dropdown {
@@ -154,6 +160,7 @@ img {
   box-shadow: var(--shadow);
   display: none;
   flex-direction: column;
+  z-index: 10;
 }
 
 .lang-switcher.open .lang-switcher__dropdown {
@@ -161,17 +168,18 @@ img {
 }
 
 .lang-option {
-  padding: 8px 12px;
+  padding: 0.5em 1em;
   background: none;
   border: none;
   text-align: left;
   cursor: pointer;
-  color: var(--text);
+  font-size: 0.9rem;
 }
 
 .lang-option:hover {
-  background: var(--border);
+  background-color: var(--hover-bg, #eee);
 }
+
 
 /* ===========================
    BURGER MENU (mobile)
@@ -406,7 +414,8 @@ img {
   display: block;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 12px;
   border-radius: var(--radius);
