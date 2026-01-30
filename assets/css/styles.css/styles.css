@@ -207,6 +207,7 @@ img {
   .header__nav {
     display: none;
   }
+
   .burger {
     display: flex;
   }
@@ -220,10 +221,12 @@ img {
   right: -300px;
   border-radius: 8px 0 0 8px;
   width: 300px;
-  max-height: 80vh; /* обмеження висоти під контент */
-  overflow-y: auto; /* додаємо прокрутку, якщо контент завеликий */
+  max-height: 80vh;
+  /* обмеження висоти під контент */
+  overflow-y: auto;
+  /* додаємо прокрутку, якщо контент завеликий */
   background: var(--card-bg);
-  box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
   padding: 80px 24px 24px;
   display: flex;
   flex-direction: column;
@@ -259,7 +262,7 @@ img {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -542,9 +545,9 @@ textarea {
 
 .bug-icon {
   position: fixed;
-  width: 48px;
-  height: 48px;
-  background-image: url('./assets/css/styles.css/bug-svgrepo-com.svg'); /* заміни шлях */
+  width: 32px;
+  height: 32px;
+  background-image: url('../img/coding-web-red-bug-24718.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
