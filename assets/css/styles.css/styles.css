@@ -182,9 +182,10 @@ img {
 
 
 /* ===========================
-   BURGER MENU (mobile)
+   BURGER MENU (mobile + tablet)
 =========================== */
 
+/* Бургер-кнопка */
 .burger {
   display: none;
   flex-direction: column;
@@ -197,26 +198,77 @@ img {
 .burger span {
   width: 24px;
   height: 2px;
-  background: var(--text);
+  background: var(--text-color);
+  transition: 0.3s ease;
 }
 
-/* Mobile nav */
+/* Показуємо бургер тільки до 1024px */
+@media (max-width: 1024px) {
+  .header__nav {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+}
+
+/* Мобільне меню (виїжджає справа) */
+
 .mobile-nav {
-  display: none;
-  flex-direction: column;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
-
-.mobile-nav__link {
-  padding: 16px;
-  border-top: 1px solid var(--border);
-  text-decoration: none;
-  color: var(--text);
-}
-
-.mobile-nav__link:hover {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  border-radius: 8px 0 0 8px;
+  width: 300px;
+  max-height: 80vh; /* обмеження висоти під контент */
+  overflow-y: auto; /* додаємо прокрутку, якщо контент завеликий */
   background: var(--card-bg);
+  box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+  padding: 80px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: right 0.3s ease;
+  z-index: 1001;
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+/* Кнопка закриття */
+.mobile-nav__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+/* Лінки */
+.mobile-nav__link {
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* Затемнення фону */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.visible {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* ===========================
@@ -230,25 +282,14 @@ img {
 .hero__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 40px;
 }
 
-.hero__title {
-  font-size: 42px;
-  font-weight: 700;
-}
-
-.hero__subtitle {
-  margin-top: 12px;
-  font-size: 18px;
-  opacity: 0.8;
-}
-
-.hero__actions {
-  margin-top: 24px;
+/* Аватарка */
+.hero__photo {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__avatar {
@@ -262,6 +303,44 @@ img {
   font-size: 48px;
   font-weight: 600;
   box-shadow: var(--shadow);
+}
+
+/* Текст */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero__title {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  margin-top: 12px;
+  font-size: 18px;
+  opacity: 0.8;
+  max-width: 480px;
+}
+
+/* Кнопки */
+.hero__actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .hero__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero__content {
+    align-items: center;
+  }
 }
 
 /* ===========================
@@ -455,4 +534,27 @@ textarea {
   .contact__inner {
     flex-direction: column;
   }
+}
+
+/* ===========================
+   CONTACT BUG
+=========================== */
+
+.bug-icon {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  background-image: url('./assets/css/styles.css/bug-svgrepo-com.svg'); /* заміни шлях */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  z-index: 2000;
+  transition: transform 0.3s ease;
+  top: 20px;
+  left: 20px;
+}
+
+.bug-icon:hover {
+  transform: scale(1.15);
 }

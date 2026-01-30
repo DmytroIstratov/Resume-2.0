@@ -10,6 +10,9 @@
 
 <body>
   <!-- Page wrapper -->
+
+ <div id="contactBug" class="bug-icon"></div>
+
   <div class="page">
 
     <!-- HEADER -->
@@ -55,45 +58,54 @@
     </header>
 
     <!-- MOBILE NAV (for small screens) -->
-    <nav class="mobile-nav" id="mobileNav">
-      <a href="#about" class="mobile-nav__link" data-i18n="nav.about">About</a>
-      <a href="#skills" class="mobile-nav__link" data-i18n="nav.skills">Skills</a>
-      <a href="#projects" class="mobile-nav__link" data-i18n="nav.projects">Projects</a>
-      <a href="#courses" class="mobile-nav__link" data-i18n="nav.courses">Courses</a>
-      <a href="#contact" class="mobile-nav__link" data-i18n="nav.contact">Contact</a>
-    </nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav__close" id="mobileNavClose">✕</button>
+
+  <a href="#about" class="mobile-nav__link" data-i18n="nav.about">About</a>
+  <a href="#skills" class="mobile-nav__link" data-i18n="nav.skills">Skills</a>
+  <a href="#projects" class="mobile-nav__link" data-i18n="nav.projects">Projects</a>
+  <a href="#courses" class="mobile-nav__link" data-i18n="nav.courses">Courses</a>
+  <a href="#contact" class="mobile-nav__link" data-i18n="nav.contact">Contact</a>
+</div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
 
     <!-- MAIN -->
-    <main>
+<main>
 
-      <!-- HERO -->
-      <section class="hero" id="hero">
-        <div class="container hero__inner">
-          <div class="hero__content">
-            <h1 class="hero__title" data-i18n="hero.title">
-              Dmytro — QA Engineer
-            </h1>
-            <p class="hero__subtitle" data-i18n="hero.subtitle">
-              Manual & API Testing • Web QA • Responsive Testing
-            </p>
-            <div class="hero__actions">
-              <a href="#" class="btn btn--primary" data-i18n="hero.downloadCv">
-                Download CV
-              </a>
-              <a href="#contact" class="btn btn--outline" data-i18n="hero.contactMe">
-                Contact me
-              </a>
-            </div>
-          </div>
-          <div class="hero__photo">
-            <!-- Placeholder for photo -->
-            <div class="hero__avatar">
-              <!-- You can replace with <img src="me.jpg" alt="Dmytro" /> -->
-              <span class="hero__avatar-initials">D</span>
-            </div>
-          </div>
-        </div>
-      </section>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+  <div class="container hero__inner">
+
+    <div class="hero__photo">
+      <div class="hero__avatar">
+        <span class="hero__avatar-initials">D</span>
+      </div>
+    </div>
+
+    <div class="hero__content">
+      <h1 class="hero__title" data-i18n="hero.title">
+        Dmytro — QA Engineer
+      </h1>
+
+      <p class="hero__subtitle" data-i18n="hero.subtitle">
+        Manual & API Testing • Web QA • Responsive Testing
+      </p>
+
+      <div class="hero__actions">
+        <a href="#" class="btn btn--primary" data-i18n="hero.downloadCv">
+          Download CV
+        </a>
+        <a href="#contact" class="btn btn--outline" data-i18n="hero.contactMe">
+          Contact me
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       <!-- ABOUT -->
       <section class="section" id="about">

@@ -114,5 +114,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// === Бургер меню ===
+
+const burger = document.getElementById('burger');
+const mobileNav = document.getElementById('mobileNav');
+const overlay = document.getElementById('overlay');
+const mobileNavClose = document.getElementById('mobileNavClose');
+const mobileLinks = document.querySelectorAll('.mobile-nav__link');
+
+function openMenu() {
+  mobileNav.classList.add('open');
+  overlay.classList.add('visible');
+}
+
+function closeMenu() {
+  mobileNav.classList.remove('open');
+  overlay.classList.remove('visible');
+}
+
+burger.addEventListener('click', openMenu);
+mobileNavClose.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
+
+/* Закриваємо меню при кліку на будь-який пункт */
+mobileLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// ===== Рухомий жучок для контакту =====
+
+const bugIcon = document.getElementById('contactBug');
+
+function moveBug() {
+  const x = Math.random() * (window.innerWidth - 60);
+  const y = Math.random() * (window.innerHeight - 60);
+  bugIcon.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+setInterval(moveBug, 3000);
+
+bugIcon.addEventListener('click', () => {
+  window.location.href = '#contact';
+});
+
+
+
+
 
 
