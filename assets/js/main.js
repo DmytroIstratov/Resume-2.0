@@ -141,6 +141,25 @@ mobileLinks.forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
+/* Пасхалка */
+const egg = document.querySelector('.footer-easter-egg');
+
+if (egg) {
+    egg.addEventListener('mouseenter', () => {
+        egg.dataset.original = egg.textContent;
+        egg.textContent = "Okay... maybe one bug. Click me.";
+        egg.style.cursor = "pointer";
+    });
+
+    egg.addEventListener('mouseleave', () => {
+        egg.textContent = egg.dataset.original;
+        egg.style.cursor = "default";
+    });
+
+    egg.addEventListener('click', () => {
+        window.open("https://github.com/DmytroIstratov/qa-portfolio", "_blank");
+    });
+}
 
 
 
