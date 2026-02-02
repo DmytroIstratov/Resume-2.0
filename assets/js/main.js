@@ -141,23 +141,6 @@ mobileLinks.forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
-// ===== Рухомий жучок для контакту =====
-
-const bugIcon = document.getElementById('contactBug');
-
-function moveBug() {
-  const x = Math.random() * (window.innerWidth - 24);
-  const y = Math.random() * (window.innerHeight - 24);
-  bugIcon.style.transform = `translate(${x}px, ${y}px)`;
-}
-
-setInterval(moveBug, 3000);
-
-bugIcon.addEventListener('click', () => {
-  window.location.href = '#contact';
-});
-
-
 
 
 

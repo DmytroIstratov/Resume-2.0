@@ -561,3 +561,47 @@ textarea {
 .bug-icon:hover {
   transform: scale(1.15);
 }
+
+.skills-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+/* Контейнер жука */
+.bug-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Сам жук */
+.bug-icon {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Текст-підказка */
+.bug-tooltip {
+    margin-left: 10px;
+    opacity: 0;
+    pointer-events: none;
+    font-size: 14px;
+    color: #0077ff;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+/* Анімація при наведенні */
+.bug-wrapper:hover .bug-icon {
+    transform: translateX(-5px);
+}
+
+.bug-wrapper:hover .bug-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+}
