@@ -134,22 +134,25 @@ img {
   display: inline-block;
 }
 
-/* Language switcher colors */
-[data-theme="dark"] .lang-switcher__current,
-[data-theme="dark"] .lang-option {
-  color: #e8ecf1;
-}
-
+/* Кнопка */
 .lang-switcher__button {
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  padding: 0.3em 0.5em;
 }
 
+/* Поточний прапор */
+.lang-switcher__current img {
+  width: 20px;
+  height: 14px;
+  display: block;
+  border-radius: 2px;
+}
+
+/* Дропдаун */
 .lang-switcher__dropdown {
   position: absolute;
   top: 110%;
@@ -161,25 +164,37 @@ img {
   display: none;
   flex-direction: column;
   z-index: 10;
+  padding: 0.3em 0;
 }
 
 .lang-switcher.open .lang-switcher__dropdown {
   display: flex;
 }
 
+/* Кнопки мов */
 .lang-option {
   padding: 0.5em 1em;
   background: none;
   border: none;
-  text-align: left;
   cursor: pointer;
-  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.lang-option img {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+/* Темна тема */
+[data-theme="dark"] .lang-option {
+  color: #e8ecf1;
 }
 
 .lang-option:hover {
   background-color: var(--hover-bg, #eee);
 }
-
 
 /* ===========================
    BURGER MENU (mobile + tablet)

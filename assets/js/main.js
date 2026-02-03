@@ -10,7 +10,6 @@ const savedTheme = localStorage.getItem(THEME_KEY);
 if (savedTheme === 'light' || savedTheme === 'dark') {
   htmlEl.setAttribute('data-theme', savedTheme);
 } else {
-  // дефолт — light
   htmlEl.setAttribute('data-theme', 'light');
 }
 
@@ -19,11 +18,7 @@ function updateThemeIcon() {
   const currentTheme = htmlEl.getAttribute('data-theme');
   const iconSpan = themeToggleBtn.querySelector('.theme-toggle__icon');
 
-  if (currentTheme === 'dark') {
-    iconSpan.textContent = '🌙';
-  } else {
-    iconSpan.textContent = '🌞';
-  }
+  iconSpan.textContent = currentTheme === 'dark' ? '🌙' : '🌞';
 }
 
 updateThemeIcon();
@@ -38,83 +33,80 @@ themeToggleBtn.addEventListener('click', () => {
   updateThemeIcon();
 });
 
-// 4. Lang switcher with i18n
+
+// ===== LANGUAGE SWITCHER + i18n =====
 
 document.addEventListener("DOMContentLoaded", () => {
   const LANG_KEY = "lang";
   const langButtons = document.querySelectorAll(".lang-option");
   const currentLangEl = document.getElementById("currentLang");
-  const switcher = document.querySelector(".lang-switcher");
-  const switcherBtn = document.querySelector(".lang-switcher__button");
+  const switcher = document.getElementById("langSwitcher");
+  const switcherBtn = switcher.querySelector(".lang-switcher__button");
+
+  // Мапа прапорів
+  const FLAG_MAP = {
+    en: "assets/img/united-kingdom-uk-svgrepo-com.svg",
+    uk: "assets/img/ukraine-svgrepo-com.svg",
+    pl: "assets/img/poland-svgrepo-com.svg",
+  };
 
   // Поточна мова
   let currentLang = localStorage.getItem(LANG_KEY) || "en";
 
-  console.log("DOM loaded. Current language:", currentLang);
+  // Встановлюємо прапор у кнопці
+  currentLangEl.innerHTML = `<img src="${FLAG_MAP[currentLang]}" alt="${currentLang} flag">`;
+
+  // Застосовуємо переклад
   applyTranslations(currentLang);
 
-  // === Відкриття/закриття дропдауну ===
-  switcherBtn.addEventListener("click", () => {
+  // Відкриття/закриття меню
+  switcherBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     switcher.classList.toggle("open");
   });
 
   // Закриття при кліку поза меню
-  document.addEventListener("click", (e) => {
-    if (!switcher.contains(e.target)) {
-      switcher.classList.remove("open");
-    }
+  document.addEventListener("click", () => {
+    switcher.classList.remove("open");
   });
 
-  // === Обробка кліку по мовам ===
+  // Клік по мові
   langButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const lang = btn.dataset.lang;
-      console.log("Clicked:", lang);
 
       currentLang = lang;
       localStorage.setItem(LANG_KEY, lang);
+
+      // Оновлюємо прапор
+      currentLangEl.innerHTML = `<img src="${FLAG_MAP[lang]}" alt="${lang} flag">`;
+
+      // Оновлюємо переклад
       applyTranslations(lang);
 
-      switcher.classList.remove("open"); // закриваємо меню після вибору
+      switcher.classList.remove("open");
     });
   });
-
-  // === Функція перекладу ===
-  function applyTranslations(lang) {
-    console.log("Applying language:", lang);
-    const langData = translations[lang];
-
-    if (!langData) {
-      console.warn("No translations found for:", lang);
-      return;
-    }
-
-    const elements = document.querySelectorAll("[data-i18n]");
-    console.log("Found elements:", elements.length);
-
-    elements.forEach(el => {
-      const key = el.dataset.i18n?.trim();
-      const translation = langData[key];
-
-      console.log("Key:", key, "| Translation:", translation);
-
-      if (translation) {
-        el.textContent = translation;
-      } else {
-        el.textContent = `[${key}]`;
-        console.warn("Missing translation for:", key);
-      }
-    });
-
-    if (currentLangEl) {
-      currentLangEl.textContent = lang.toUpperCase();
-    }
-
-    console.log("Translation applied.");
-  }
 });
 
-// === Бургер меню ===
+
+// === Функція перекладу ===
+function applyTranslations(lang) {
+  const langData = translations[lang];
+  if (!langData) return;
+
+  const elements = document.querySelectorAll("[data-i18n]");
+
+  elements.forEach(el => {
+    const key = el.dataset.i18n?.trim();
+    const translation = langData[key];
+
+    el.textContent = translation || `[${key}]`;
+  });
+}
+
+
+// ===== BURGER MENU =====
 
 const burger = document.getElementById('burger');
 const mobileNav = document.getElementById('mobileNav');
@@ -136,30 +128,32 @@ burger.addEventListener('click', openMenu);
 mobileNavClose.addEventListener('click', closeMenu);
 overlay.addEventListener('click', closeMenu);
 
-/* Закриваємо меню при кліку на будь-який пункт */
 mobileLinks.forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
-/* Пасхалка */
+
+// ===== FOOTER EASTER EGG =====
+
 const egg = document.querySelector('.footer-easter-egg');
 
 if (egg) {
-    egg.addEventListener('mouseenter', () => {
-        egg.dataset.original = egg.textContent;
-        egg.textContent = "Okay... maybe one bug. Click me.";
-        egg.style.cursor = "pointer";
-    });
+  egg.addEventListener('mouseenter', () => {
+    egg.dataset.original = egg.textContent;
+    egg.textContent = "Okay... maybe one bug. Click me.";
+    egg.style.cursor = "pointer";
+  });
 
-    egg.addEventListener('mouseleave', () => {
-        egg.textContent = egg.dataset.original;
-        egg.style.cursor = "default";
-    });
+  egg.addEventListener('mouseleave', () => {
+    egg.textContent = egg.dataset.original;
+    egg.style.cursor = "default";
+  });
 
-    egg.addEventListener('click', () => {
-        window.open("https://github.com/DmytroIstratov/qa-portfolio", "_blank");
-    });
+  egg.addEventListener('click', () => {
+    window.open("https://github.com/DmytroIstratov/qa-portfolio", "_blank");
+  });
 }
+
 
 
 
